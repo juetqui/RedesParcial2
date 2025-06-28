@@ -4,31 +4,40 @@ using UnityEngine;
 
 public class WeaponHandler : NetworkBehaviour
 {
-    [SerializeField] private NetworkPrefabRef _bulletPrefab;
+    [SerializeField] private NetworkPrefabRef _primaryBulletPrefab;
+    [SerializeField] private NetworkPrefabRef _secondaryBulletPrefab;
+
     [SerializeField] private Transform _shotSpawnTransform;
 
     public event Action OnShot = delegate { };
 
-    public void Fire()
+    public void FirePrimary()
     {
         if (!HasStateAuthority) return;
 
-        SpawnBullet();
-
-        RayBullet();
-
+        SpawnBullet(_primaryBulletPrefab);
+        RayBullet(5); // daño primario
         OnShot();
     }
 
-    void SpawnBullet()
+    public void FireSecondary()
     {
-        Runner.Spawn(_bulletPrefab, _shotSpawnTransform.position, _shotSpawnTransform.rotation);
+        if (!HasStateAuthority) return;
+
+        SpawnBullet(_secondaryBulletPrefab);
+        RayBullet(20); // daño menor u otro efecto
+        OnShot();
     }
 
-    void RayBullet()
+    void SpawnBullet(NetworkPrefabRef prefab)
+    {
+        Runner.Spawn(prefab, _shotSpawnTransform.position, _shotSpawnTransform.rotation);
+    }
+
+    void RayBullet(byte damage)
     {
         Debug.DrawLine(transform.position, transform.position + transform.forward * 5, Color.magenta, 2);
-        
+
         Runner.LagCompensation.Raycast(origin: transform.position,
                                         direction: transform.forward,
                                         length: 5,
@@ -38,7 +47,8 @@ public class WeaponHandler : NetworkBehaviour
         if (hitInfo.Hitbox == null) return;
 
         if (!hitInfo.Hitbox.transform.root.TryGetComponent(out LifeHandler player)) return;
-        
-        player.TakeDamage(25);
+
+        player.TakeDamage(damage);
     }
+
 }

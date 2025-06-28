@@ -6,7 +6,8 @@ public class LocalInputs : MonoBehaviour
 
     private bool _isJumpPressed;
     private bool _isFirePressed;
-    
+    private bool _isFireSecondaryPressed;
+
     void Start()
     {
         _networkInputData = new NetworkInputData();
@@ -22,8 +23,13 @@ public class LocalInputs : MonoBehaviour
             _isFirePressed = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            _isFireSecondaryPressed = true;
+        }
+
         //_isFirePressed |= Input.GetKeyDown(KeyCode.Space);
-        
+
         _isJumpPressed |= Input.GetKeyDown(KeyCode.Space);
     }
 
@@ -31,6 +37,9 @@ public class LocalInputs : MonoBehaviour
     {
         _networkInputData.isFirePressed = _isFirePressed;
         _isFirePressed = false;
+
+        _networkInputData.isFireSecondaryPressed = _isFireSecondaryPressed;
+        _isFireSecondaryPressed = false;
 
         _networkInputData.networkButtons.Set(MyButtons.Jump, _isJumpPressed);
         _isJumpPressed = false;

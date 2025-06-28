@@ -40,10 +40,16 @@ public class PlayerController : NetworkBehaviour
             _characterMovement.StartDash(moveDirection);
         }
 
-        //Disparo
+        //Disparo primario
         if (inputs.isFirePressed)
         {
-            _weaponHandler.Fire();
+            _weaponHandler.FirePrimary();
+        } 
+        
+        //Disparo secundario
+        if (inputs.isFireSecondaryPressed)
+        {
+            _weaponHandler.FireSecondary();
         }
     }
 }

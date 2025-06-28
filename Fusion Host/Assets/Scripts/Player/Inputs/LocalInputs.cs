@@ -16,16 +16,17 @@ public class LocalInputs : MonoBehaviour
 
     void Update()
     {
-        _networkInputData.movementInput = Input.GetAxis("Horizontal");
+        _networkInputData.horizontalMovementInput = Input.GetAxis("Horizontal");
+        _networkInputData.verticalMovementInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             _isFirePressed = true;
         }
 
         //_isFirePressed |= Input.GetKeyDown(KeyCode.Space);
         
-        _isJumpPressed |= Input.GetKeyDown(KeyCode.W);
+        _isJumpPressed |= Input.GetKeyDown(KeyCode.Space);
     }
 
     public NetworkInputData GetLocalInputs()

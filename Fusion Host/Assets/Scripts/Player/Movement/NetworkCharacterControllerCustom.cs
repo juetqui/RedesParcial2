@@ -10,32 +10,37 @@ public class NetworkCharacterControllerCustom : NetworkCharacterController
     
     public override void Move(Vector3 direction)
     {
-        var deltaTime    = Runner.DeltaTime;
-        var previousPos  = transform.position;
+        var deltaTime = Runner.DeltaTime;
+        var previousPos = transform.position;
         var moveVelocity = Velocity;
 
         direction = direction.normalized;
 
-        if (Grounded && moveVelocity.y < 0) {
+        if (Grounded && moveVelocity.y < 0)
+        {
             moveVelocity.y = 0f;
         }
 
         moveVelocity.y += gravity * Runner.DeltaTime;
 
-        var horizontalVel = default(Vector3);
-        horizontalVel.z = moveVelocity.x;
+        var horizontalVel = new Vector3(moveVelocity.x, 0, moveVelocity.z);
 
-        if (direction == default) 
+        if (direction == default)
         {
             horizontalVel = Vector3.Lerp(horizontalVel, default, braking * deltaTime);
-        } 
-        else 
+        }
+        else
         {
-            horizontalVel      = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-            transform.rotation = Quaternion.Euler(Vector3.up * (Mathf.Sign(direction.z) < 0 ? -90 : 90));
+            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
+            // Rotate to face the movement direction
+            if (direction.magnitude > 0.1f)
+            {
+                transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            }
         }
 
-        moveVelocity.x = horizontalVel.z;
+        moveVelocity.x = horizontalVel.x;
+        moveVelocity.z = horizontalVel.z;
 
         Controller.Move(moveVelocity * deltaTime);
 

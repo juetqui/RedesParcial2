@@ -33,7 +33,7 @@ public class PlayerController : NetworkBehaviour
         if (!GetInput(out NetworkInputData inputs)) return;
         
         //Movimiento
-        Vector3 moveDirection = Vector3.forward * inputs.movementInput;
+        Vector3 moveDirection = (Vector3.forward * inputs.verticalMovementInput) + (Vector3.right * inputs.horizontalMovementInput);
         _characterMovement.Move(moveDirection);
         
         //Salto

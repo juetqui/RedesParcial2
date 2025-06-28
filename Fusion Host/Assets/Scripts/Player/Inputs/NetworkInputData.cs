@@ -2,7 +2,8 @@ using Fusion;
 
 public struct NetworkInputData : INetworkInput
 {
-    public float movementInput;
+    public float horizontalMovementInput;
+    public float verticalMovementInput;
     public NetworkBool isFirePressed;
 
     public NetworkButtons networkButtons;

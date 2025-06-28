@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 
@@ -15,7 +13,7 @@ public class WeaponHandler : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        //SpawnBullet();
+        SpawnBullet();
 
         RayBullet();
 
@@ -29,12 +27,12 @@ public class WeaponHandler : NetworkBehaviour
 
     void RayBullet()
     {
-        Debug.DrawLine(transform.position, transform.position + transform.forward * 2, Color.magenta, 2);
+        Debug.DrawLine(transform.position, transform.position + transform.forward * 5, Color.magenta, 2);
         
-        Runner.LagCompensation.Raycast(origin: transform.position, 
-                                        direction: transform.forward, 
-                                        length: 100, 
-                                        player: Object.InputAuthority, 
+        Runner.LagCompensation.Raycast(origin: transform.position,
+                                        direction: transform.forward,
+                                        length: 5,
+                                        player: Object.InputAuthority,
                                         hit: out var hitInfo);
 
         if (hitInfo.Hitbox == null) return;

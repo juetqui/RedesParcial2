@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 
 public class PlayerView : NetworkBehaviour
 {
-    [SerializeField] private ParticleSystem _shotParticles;
     [SerializeField] private GameObject _playerVisual;
 
     private NetworkMecanimAnimator _mecanimAnimator;
 
-    [Networked, OnChangedRender(nameof(TriggerShotParticles))] private NetworkBool Firing { get; set; }
+    [Networked] private NetworkBool Firing { get; set; }
 
     public override void Spawned()
     {
@@ -44,11 +41,6 @@ public class PlayerView : NetworkBehaviour
     void MoveAnimation(float xValue)
     {
         _mecanimAnimator.Animator.SetFloat("xAxi", xValue);
-    }
-
-    void TriggerShotParticles()
-    {
-        _shotParticles.Play();
     }
 
     void EnableMeshRender(bool e)

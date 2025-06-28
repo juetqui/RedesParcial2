@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Fusion;
 using UnityEngine;
 
@@ -50,5 +51,4 @@ public class WeaponHandler : NetworkBehaviour
 
         player.TakeDamage(damage);
     }
-
 }

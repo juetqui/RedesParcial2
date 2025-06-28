@@ -5,7 +5,6 @@ using UnityEngine;
 public class NetworkCharacterControllerCustom : NetworkCharacterController
 {
     public event Action<float> OnMoving = delegate { };
-    [SerializeField] private float rotationSpeed = 720f; // Grados por segundo
     [SerializeField] private float dashSpeed = 20f; // Velocidad del dash
     [SerializeField] private float dashDuration = 0.2f; // Duración del dash en segundos
     [SerializeField] private float dashCooldown = 1f; // Cooldown entre dashes

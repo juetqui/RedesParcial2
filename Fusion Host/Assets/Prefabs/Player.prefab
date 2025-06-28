@@ -135,6 +135,10 @@ MonoBehaviour:
   braking: 10
   maxSpeed: 5
   rotationSpeed: 15
+  rotationSpeed: 15
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!114 &6278794914268681926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1dc373fee16a8a48a57cacd81f1de86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab:
+  _primaryBulletPrefab:
     RawGuidValue: 0d3b76cccd4d5ed4f92251c40c1a0c05
+  _secondaryBulletPrefab:
+    RawGuidValue: b00fd887d68805c499e7b5256e505adf
   _shotSpawnTransform: {fileID: 9104244335117436584}
 --- !u!114 &7333067468720892729
 MonoBehaviour:

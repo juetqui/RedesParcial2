@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5583951020437916498}
   - component: {fileID: 7618577848750287123}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: Bullet 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 1032589
+  SortKey: 1593501876
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8580e095582484f46908939e90a397da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damage: 20
 --- !u!1 &8800238326520760876
 GameObject:
   m_ObjectHideFlags: 0

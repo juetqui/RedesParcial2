@@ -1,3 +1,4 @@
+using System.Collections;
 using Fusion;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ public class PlayerController : NetworkBehaviour
 {
     private NetworkCharacterControllerCustom _characterMovement;
     private WeaponHandler _weaponHandler;
-    
+
+    private bool _canFirePrimary = true, _canFireSecondary = true;
+
     public override void Spawned()
     {
         _characterMovement = GetComponent<NetworkCharacterControllerCustom>();
@@ -41,15 +44,31 @@ public class PlayerController : NetworkBehaviour
         }
 
         //Disparo primario
-        if (inputs.isFirePressed)
+        if (inputs.isFirePressed && _canFirePrimary)
         {
+            StartCoroutine(PrimaryShootCD());
             _weaponHandler.FirePrimary();
         } 
         
         //Disparo secundario
-        if (inputs.isFireSecondaryPressed)
+        if (inputs.isFireSecondaryPressed && _canFireSecondary)
         {
+            StartCoroutine(SecondaryShootCD());
             _weaponHandler.FireSecondary();
         }
+    }
+
+    private IEnumerator PrimaryShootCD()
+    {
+        _canFirePrimary = false;
+        yield return new WaitForSeconds(0.25f);
+        _canFirePrimary = true;
+    }
+
+    private IEnumerator SecondaryShootCD()
+    {
+        _canFireSecondary = false;
+        yield return new WaitForSeconds(1f);
+        _canFireSecondary = true;
     }
 }

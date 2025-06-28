@@ -33,13 +33,13 @@ public class PlayerController : NetworkBehaviour
         //Movimiento
         Vector3 moveDirection = (Vector3.forward * inputs.verticalMovementInput) + (Vector3.right * inputs.horizontalMovementInput);
         _characterMovement.Move(moveDirection);
-        
+
         //Salto
         if (inputs.networkButtons.IsSet(MyButtons.Jump))
         {
-            _characterMovement.Jump();
+            _characterMovement.StartDash(moveDirection);
         }
-        
+
         //Disparo
         if (inputs.isFirePressed)
         {

@@ -134,7 +134,7 @@ MonoBehaviour:
   jumpImpulse: 8
   acceleration: 10
   braking: 10
-  maxSpeed: 2
+  maxSpeed: 7
   rotationSpeed: 15
 --- !u!114 &6278794914268681926
 MonoBehaviour:
@@ -370,11 +370,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2610335420132310252, guid: 8a508b7ac246fac4fa40e5ce96143234, type: 3}
   m_PrefabInstance: {fileID: 982663453970475107}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4627733172401514312 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5591814843891158827, guid: 8a508b7ac246fac4fa40e5ce96143234, type: 3}
-  m_PrefabInstance: {fileID: 982663453970475107}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4474918566884544331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -577,5 +572,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34acb2cbde13e694fb972530e94aae5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotParticles: {fileID: 4627733172401514312}
   _playerVisual: {fileID: 9114759185379216021}

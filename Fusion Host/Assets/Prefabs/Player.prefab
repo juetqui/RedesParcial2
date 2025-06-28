@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab:
-    RawGuidValue: 47ca1df56839df849903d273bbac993f
+    RawGuidValue: 0d3b76cccd4d5ed4f92251c40c1a0c05
   _shotSpawnTransform: {fileID: 9104244335117436584}
 --- !u!114 &7333067468720892729
 MonoBehaviour:
@@ -217,11 +217,11 @@ Transform:
   m_GameObject: {fileID: 3773046686293785697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.111, y: 1.3897747, z: 0.912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7398604784553366542}
+  m_Father: {fileID: 8445922223217283119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4892709657423844486
 GameObject:
@@ -355,7 +355,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4936884950917866777, guid: 4295a3147cab3624b89daaa05611337b, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -7777057793763974198, guid: 4295a3147cab3624b89daaa05611337b, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4295a3147cab3624b89daaa05611337b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9104244335117436584}
     m_AddedComponents:
@@ -369,11 +369,6 @@ PrefabInstance:
 --- !u!95 &2582213331360959061 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4295a3147cab3624b89daaa05611337b, type: 3}
-  m_PrefabInstance: {fileID: 8268407696731731908}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7398604784553366542 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7777057793763974198, guid: 4295a3147cab3624b89daaa05611337b, type: 3}
   m_PrefabInstance: {fileID: 8268407696731731908}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8445922223217283119 stripped

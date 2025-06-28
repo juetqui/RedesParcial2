@@ -29,8 +29,7 @@ public class NetworkCharacterControllerCustom : NetworkCharacterController
         }
         else
         {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-            // Rotate to face the movement direction
+            horizontalVel = direction * maxSpeed; // Velocidad máxima directamente
             if (direction.magnitude > 0.1f)
             {
                 transform.rotation = Quaternion.LookRotation(direction, Vector3.up);

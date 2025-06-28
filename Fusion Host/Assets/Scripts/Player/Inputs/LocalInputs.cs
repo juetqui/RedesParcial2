@@ -17,7 +17,7 @@ public class LocalInputs : MonoBehaviour
         _networkInputData.horizontalMovementInput = Input.GetAxis("Horizontal");
         _networkInputData.verticalMovementInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             _isFirePressed = true;
         }
